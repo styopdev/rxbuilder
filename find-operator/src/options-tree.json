@@ -1,0 +1,51 @@
+{
+    "data": {
+        "groups": [{
+            "id": "async",
+            "parent_id": null,
+            "options": []
+        }, {
+            "id": "filter",
+            "parent_id": null,
+            "options": ["condition"]
+        }, {
+            "id": "order",
+            "parent_id": "async",
+            "options": ["next", "parallel"]
+        }, {
+            "id": "failure_tolerance",
+            "parent_id": "order",
+            "options": ["continue", "cancel"]
+        }, {
+            "id": "argument_chain",
+            "parent_id": "failure_tolerance",
+            "options": ["pass", "ignore"]
+        }],
+        "options": [{
+            "id": "next",
+            "type": "text"
+        }, {
+            "id": "parallel",
+            "type": "text"
+        }, {
+            "id": "continue",
+            "type": "text"
+        }, {
+            "id": "cancel",
+            "type": "text"
+        }, {
+            "id": "pass",
+            "type": "text"
+        }, {
+            "id": "ignore",
+            "type": "text"
+        }, {
+            "id": "condition",
+            "type": "input"
+        }],
+        "operators": {
+            "next.cancel.ignore": "switchMap",
+            "next.cancel.pass": "flatMap"
+        }
+    }
+}

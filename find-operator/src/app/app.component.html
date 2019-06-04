@@ -1,3 +1,10 @@
-<h1>
-  {{title}}
-</h1>
+<h1> {{title}} </h1>
+
+<div *ngFor="let criteria of criterias">
+  <span>
+    {{ criteria.label }}
+  </span>
+  <ng-container *ngFor="let option of criteria.options">
+    <button class="criteria-option" click="selectOption(criteria, option)">{{ option.label }}</button>
+  </ng-container>
+</div>
