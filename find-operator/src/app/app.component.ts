@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Criteria } from '../models/criteria.model';
+// import { Criteria } from '../models/criteria.model';
 import { FlowService } from 'services/flow.service';
 
 @Component({
@@ -8,14 +8,34 @@ import { FlowService } from 'services/flow.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app works!';
-  criterias: Criteria[];
+  title = 'rx.js builder';
+  selectedGroup = {
+    options: []
+  };
+  groups = [];
+  chain = [];
+  parentId ?: string = null;
 
   constructor(private flowService: FlowService) {
   }
 
   ngOnInit() {
-    this.criterias = this.flowService.getCriterias();
+    this.updateGroups(this.parentId);
+  }
+
+  updateGroups(parentId) {
+    const groups = this.flowService.getGroups(parentId);
+    if (groups.length) {
+      this.groups.push(...groups);
+    }
+  }
+
+  addNewGroup(parentId) {
+    this.updateGroups(parentId);
+  }
+
+  selectGroup(group) {
+    this.updateGroups(group.id);
   }
 
   selectOption(criteria, option) {

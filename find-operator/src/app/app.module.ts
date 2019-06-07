@@ -15,7 +15,7 @@ import { FlowService } from '../services/flow.service';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [FlowService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

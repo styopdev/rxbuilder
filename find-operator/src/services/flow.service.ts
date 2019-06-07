@@ -5,16 +5,16 @@ import * as options from '../options-tree.json';
 @Injectable()
 
  export class FlowService {
-    private options =  options.data;
+    private options = options['data'];
     
     constructor() {
     }
 
-    getOption() { 
-        
+    getOptions(previousOption) { 
+        const group = this.options.groups.filter();
     }
 
-    getChildGroup() {
-
+    getGroups(parentId) {
+        return this.options.groups.filter(group => group.parent_id === parentId);
     }
 }
