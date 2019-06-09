@@ -1,27 +1,29 @@
 {
     "data": {
         "groups": [{
-            "id": "async",
-            "parent_id": null,
-            "options": []
-        }, {
-            "id": "filter",
-            "parent_id": null,
-            "options": ["condition"]
+            "id": "add",
+            "parent_ids": [null],
+            "options": ["async", "filter"]
         }, {
             "id": "order",
-            "parent_id": "async",
+            "parent_ids": ["async"],
             "options": ["next", "parallel"]
         }, {
             "id": "failure_tolerance",
-            "parent_id": "order",
+            "parent_ids": ["next", "parallel"],
             "options": ["continue", "cancel"]
         }, {
             "id": "argument_chain",
-            "parent_id": "failure_tolerance",
+            "parent_ids": ["continue", "cancel"],
             "options": ["pass", "ignore"]
         }],
         "options": [{
+            "id": "async",
+            "type": "text"
+        }, {
+            "id": "filter",
+            "type": "text"
+        }, {
             "id": "next",
             "type": "text"
         }, {

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { Criteria } from '../models/criteria.model';
 import { FlowService } from 'services/flow.service';
 
 @Component({
@@ -9,9 +8,6 @@ import { FlowService } from 'services/flow.service';
 })
 export class AppComponent implements OnInit {
   title = 'rx.js builder';
-  selectedGroup = {
-    options: []
-  };
   groups = [];
   chain = [];
   parentId ?: string = null;
@@ -24,9 +20,11 @@ export class AppComponent implements OnInit {
   }
 
   updateGroups(parentId) {
-    const groups = this.flowService.getGroups(parentId);
-    if (groups.length) {
+    const groups = this.flowService.getGroups(parentId || null);
+    if (groups && groups.length) {
       this.groups.push(...groups);
+    } else {
+      this.showCode();
     }
   }
 
@@ -34,11 +32,21 @@ export class AppComponent implements OnInit {
     this.updateGroups(parentId);
   }
 
-  selectGroup(group) {
-    this.updateGroups(group.id);
+  showCode() {
+    console.log(this.groups.map(g => g.selectedOption));
   }
 
-  selectOption(criteria, option) {
-    //
+  selectGroup(group, option) {
+    debugger;
+    if (group.selectedOption) {
+      if (group.selectedOption === option) {
+        return;
+      }
+      const groupIndex = this.groups.findIndex(g => g.id === group.id);
+      this.groups = this.groups.splice(0, groupIndex + 1);
+    }
+
+    group.selectedOption = option;
+    this.updateGroups(option);
   }
 }

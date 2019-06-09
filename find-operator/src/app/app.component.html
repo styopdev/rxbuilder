@@ -1,16 +1,16 @@
+<h1> {{ title }} </h1>
 <div class="rx-page">
-  <h1> {{ title }} </h1>
-
+  <h2>You have an observable and you want to ?</h2>
   <ng-container *ngFor="let group of groups">
     <div class="rx-group" (click)="selectGroup(group)">
       {{ group.id }}
     </div>
-  </ng-container>
-  
-  <ng-container *ngFor="let option of selectedGroup.options">
-    <div class="rx-option" (click)="selectOption(group, option)">
-      {{ option.id }}
-    </div>
+
+    <ng-container *ngFor="let option of group.options">
+      <div class="rx-option" [ngClass]="{ 'selected': group.selectedOption === option }" (click)="selectGroup(group, option)">
+        {{ option }}
+      </div>
+    </ng-container>
   </ng-container>
   
 </div>

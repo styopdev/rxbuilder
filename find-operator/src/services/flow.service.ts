@@ -10,11 +10,13 @@ import * as options from '../options-tree.json';
     constructor() {
     }
 
-    getOptions(previousOption) { 
-        const group = this.options.groups.filter();
-    }
+    // getOptions(previousOption) { 
+    //     const group = this.options.groups.filter();
+    // }
 
     getGroups(parentId) {
-        return this.options.groups.filter(group => group.parent_id === parentId);
+        return this.options
+            .groups
+            .filter(group => group.parent_ids.some(id => id === parentId));
     }
 }
