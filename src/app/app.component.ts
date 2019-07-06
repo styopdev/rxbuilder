@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FlowService } from 'services/flow.service';
+import { FlowService } from '../services/flow.service';
 
 @Component({
   selector: 'app-root',
