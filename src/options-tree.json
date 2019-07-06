@@ -46,8 +46,10 @@
             "type": "input"
         }],
         "operators": {
-            "next.cancel.ignore": "switchMap",
-            "next.cancel.pass": "flatMap"
+            "async.next.cancel.ignore": "switchMap",
+            "async.next.cancel.pass": "flatMap",
+            "async.next.continue.ignore": "exhaustMap",
+            "async.next.continue.pass": "mergeMap"
         }
     }
 }

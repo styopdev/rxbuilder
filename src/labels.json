@@ -1,0 +1,8 @@
+{
+    "group": {
+        "add": "Add",
+        "order": "Order",
+        "failure_tolerance": "Failure tolerance",
+        "argument_chain": "Argument chain"
+    }
+}

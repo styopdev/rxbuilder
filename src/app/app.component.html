@@ -3,7 +3,7 @@
   <h2>You have an observable and you want to ?</h2>
   <ng-container *ngFor="let group of groups">
     <div class="rx-group">
-      {{ group.id }}
+      {{ labels.group[group.id] }}
     </div>
 
     <ng-container *ngFor="let option of group.options">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FlowService } from '../services/flow.service';
+import * as labels from '../labels.json';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,11 @@ import { FlowService } from '../services/flow.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'rx.js builder';
+  title = 'RXbuilder';
   groups = [];
   chain = [];
   parentId ?: string = null;
+  public labels = labels['default'];
 
   constructor(private flowService: FlowService) {
   }
@@ -33,11 +35,13 @@ export class AppComponent implements OnInit {
   }
 
   showCode() {
-    console.log(this.groups.map(g => g.selectedOption));
+    const optionsChain = this.groups.map(g => g.selectedOption).join('.');
+    const operator = this.flowService.getOperator(optionsChain);
+    console.log('optionsChain: ', optionsChain);
+    console.log('operator: ', operator);
   }
 
   selectGroup(group, option) {
-    debugger;
     if (group.selectedOption) {
       if (group.selectedOption === option) {
         return;
