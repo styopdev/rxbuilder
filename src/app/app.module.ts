@@ -6,14 +6,23 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { FlowService } from '../services/flow.service';
 
+import { CodemirrorModule } from '@ctrl/ngx-codemirror';
+import { HttpClientModule } from '@angular/common/http'; 
+
+
+import 'codemirror/mode/javascript/javascript';
+import 'codemirror/mode/markdown/markdown';
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    CodemirrorModule
   ],
   providers: [FlowService],
   bootstrap: [AppComponent]

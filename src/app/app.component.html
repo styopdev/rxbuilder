@@ -12,5 +12,16 @@
       </div>
     </ng-container>
   </ng-container>
+
   
 </div>
+
+
+  <ngx-codemirror 
+  [(ngModel)]="content" 
+  [options]="{
+    lineNumbers: true,
+    theme: 'material',
+    mode: 'markdown'
+  }"
+></ngx-codemirror>

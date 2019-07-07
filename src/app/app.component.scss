@@ -1,3 +1,8 @@
+@import "~codemirror/lib/codemirror";
+@import "~codemirror/theme/material";
+
+
+
 .rx-page {
     text-align: center;
 }
@@ -11,10 +16,11 @@
     text-align: center;
     border-radius: 50%;
     font-size: 1.5em;
-    padding: 30px;
+    padding: 15px;
     min-width: 120px;
     background-color: purple;
     cursor: pointer;
+    color: #ffffff;
 }
 
 .rx-option.selected {
