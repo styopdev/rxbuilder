@@ -47,6 +47,9 @@
         }],
         "operators": {
             "async.parallel.cancel": "forkJoin"
+        },
+        "codes": {
+            "forkJoin": "forkJoin([observable1, observable2])\n.subscribe([result1, result2] => { \n //console.log('result1', result1); \n console.log('result2', result2); \n })"
         }
     }
 }

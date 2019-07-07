@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FlowService } from '../services/flow.service';
 import * as labels from '../labels.json';
 import { HttpClient } from '@angular/common/http';
-import { switchMap, mergeMap,flatMap } from 'rxjs/operators';
-import { forkJoin } from 'rxjs';
+import { switchMap, mergeMap,flatMap, combineAll } from 'rxjs/operators';
+import { forkJoin, combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -31,10 +31,11 @@ export class AppComponent implements OnInit {
     const hatsObservable = this.http.get(hatsUrl);
     const catsObservable = this.http.get(catFactsUrl);
     
-    forkJoin([hatsObservable, catsObservable])
-      .subscribe(([hats, cats]) => {
+    combineAll([hatsObservable, catsObservable, hatsObservable])
+      .subscribe(([hats, cats, hats2]) => {
         console.log('hats: ', hats);
         console.log('cats: ', cats);
+        console.log('hats2: ', hats2);
       })
 
     // this.updateGroups(this.parentId);
