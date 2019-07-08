@@ -3,6 +3,8 @@
         "add": "Add",
         "order": "Order",
         "failure_tolerance": "Failure tolerance",
-        "argument_chain": "Argument chain"
+        "argument_chain": "Argument chain",
+        "interval_input": "Interval time",
+        "map_input": "Fill your map"
     }
 }

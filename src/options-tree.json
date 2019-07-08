@@ -3,7 +3,7 @@
         "groups": [{
             "id": "add",
             "parent_ids": [null],
-            "options": ["async", "map", "filter", "interval_input"]
+            "options": ["async", "map", "filter", "interval"]
         }, {
             "id": "order",
             "parent_ids": ["async"],
