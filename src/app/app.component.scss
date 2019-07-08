@@ -1,23 +1,27 @@
-@import "~codemirror/lib/codemirror";
-@import "~codemirror/theme/material";
-
-
-
-.rx-page {
+.rx-container {
+    width: 60%;
+    float: right;
+    padding-right: 30px;
+    box-sizing: border-box;
     text-align: center;
 }
 
+.code-preview {
+    width: 40%;
+    float: right;
+}
+
 .rx-option {
-    display: inline-block;
+    min-width: 120px;
+    width: auto;
+    padding: 15px;
     margin-right: 50px;
+    display: inline-block;
     box-sizing: border-box;
     font-weight: 500;
-    width: auto;
     text-align: center;
     border-radius: 50%;
     font-size: 1.5em;
-    padding: 15px;
-    min-width: 120px;
     background-color: purple;
     cursor: pointer;
     color: #ffffff;
@@ -35,4 +39,8 @@
     margin-bottom: 10px;
     text-transform: capitalize;
     background-color: blueviolet;
+}
+
+h2 {
+    text-align: left;
 }

@@ -12,11 +12,13 @@
             "id": "failure_tolerance",
             "parent_ids": ["next", "parallel"],
             "options": ["continue", "cancel"]
-        }, {
+        }
+        , {
             "id": "argument_chain",
             "parent_ids": ["continue", "cancel"],
             "options": ["pass", "ignore"]
-        }],
+        }
+        ],
         "options": [{
             "id": "async",
             "type": "text"
@@ -46,10 +48,10 @@
             "type": "input"
         }],
         "operators": {
-            "async.parallel.cancel": "forkJoin"
+            "async.parallel.cancel.ignore": "forkJoin"
         },
         "codes": {
-            "forkJoin": "forkJoin([observable1, observable2])\n.subscribe([result1, result2] => { \n //console.log('result1', result1); \n console.log('result2', result2); \n })"
+            "forkJoin": "forkJoin([observable1, observable2])\n  .subscribe([result1, result2] => { \n     // console.log('result 1: ', result1, ' result 2', result2); \n  });"
         }
     }
 }

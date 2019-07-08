@@ -18,4 +18,8 @@ import * as options from '../options-tree.json';
     getOperator(optionsChain) {
         return this.options.operators[optionsChain];
     }
+
+    getCodeByOperator(operator) {
+        return this.options.codes[operator];
+    }
 }
