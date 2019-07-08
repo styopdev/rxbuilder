@@ -1,19 +1,10 @@
-export class OptionGroup {
+export interface OptionGroup {
     id: string;
     options: Option[];
-
-    constructor(id, options) {
-        this.id = id;
-        this.options = options;
-    }
+    parent_ids: string[]
 };
 
-export class Option {
+export interface Option {
     id: string;
     type: 'text' | 'input' | 'dropdown';
-
-    constructor(id, type) {
-        this.id = id;
-        this.type = type;
-    }
-}
+};

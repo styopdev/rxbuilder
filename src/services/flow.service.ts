@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {Option} from '../models/option.model';
 import * as options from '../options-tree.json';
 
 @Injectable()
@@ -21,5 +22,10 @@ import * as options from '../options-tree.json';
 
     getCodeByOperator(operator) {
         return this.options.codes[operator];
+    }
+
+    getOptionType(operator) {
+        const option = this.options.options.find(oper => oper.id === operator) as Option;
+        return option.type;
     }
 }

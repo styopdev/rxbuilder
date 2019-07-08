@@ -22,11 +22,13 @@
     </div>  
 
     <ng-container *ngFor="let option of group.options">
-      <div class="rx-option" [ngClass]="{ 'selected': group.selectedOption === option }" (click)="selectGroup(group, option)">
-        {{ option }}
-      </div>  
-    </ng-container>  
+      <div *ngIf="option.type === 'text'" class="rx-option" [ngClass]="{ 'selected': group.selectedOption === option.id }" (click)="selectGroup(group, option.id)">
+        {{ option.id }}
+      </div>
+
+      <div *ngIf="option.type === 'input'" class="rx-option" [ngClass]="{ 'selected': group.selectedOption === option.id }" (click)="selectGroup(group, option)">
+        <input type="text">
+      </div>
+    </ng-container>
   </ng-container>  
-  
-  
 </div>

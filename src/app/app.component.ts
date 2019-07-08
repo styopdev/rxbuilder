@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FlowService } from '../services/flow.service';
+import {Component, OnInit} from '@angular/core';
+import {FlowService} from '../services/flow.service';
 import * as labels from '../labels.json';
-import { HttpClient } from '@angular/common/http';
-import { switchMap, mergeMap,flatMap, combineAll } from 'rxjs/operators';
-import { forkJoin, combineLatest } from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +13,7 @@ export class AppComponent implements OnInit {
   groups = [];
   chain = [];
   parentId ?: string = null;
-  generatedCode = '';
+  generatedCode = 'const observable;';
   public labels = labels['default'];
 
   constructor(
@@ -25,11 +23,39 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    // const hatsUrl = 'https://www.potterapi.com/v1/sortingHat';
+    // const catFactsUrl = 'https://cors-anywhere.herokuapp.com/https://cat-fact.herokuapp.com/facts/random';
+
+    // const hatsObservable = this.http.get(hatsUrl);
+    // const catsObservable = this.http.get(catFactsUrl);
+
+    // combineAll([hatsObservable, catsObservable, hatsObservable])
+    //   .subscribe(([hats, cats, hats2]) => {
+    //     console.log('hats: ', hats);
+    //     console.log('cats: ', cats);
+    //     console.log('hats2: ', hats2);
+    // })
+
     this.updateGroups(this.parentId);
   }
 
   updateGroups(parentId) {
     const groups = this.flowService.getGroups(parentId || null);
+
+    groups.forEach(group => {
+      const isRoot = ~group.parent_ids.indexOf(null);
+
+      group.options = group.options.map(option => {
+        
+        if (isRoot) {
+          return { id: option, type: 'text' };
+        } else {
+          const type = this.flowService.getOptionType(option);
+          return { id: option, type };
+        }
+      });  
+    });
+
     if (groups && groups.length) {
       this.groups.push(...groups);
     } else {
@@ -42,7 +68,7 @@ export class AppComponent implements OnInit {
   }
 
   showCode() {
-    const optionsChain = this.groups.map(g => g.selectedOption).join('.');
+    const optionsChain = this.groups.map(g => g.selectedOption.id).join('.');
     const operator = this.flowService.getOperator(optionsChain);
     const code = this.flowService.getCodeByOperator(operator);
     console.log('optionsChain: ', optionsChain);
@@ -51,16 +77,16 @@ export class AppComponent implements OnInit {
     this.generatedCode = code;
   }
 
-  selectGroup(group, option) {
+  selectGroup(group, optionId) {
     if (group.selectedOption) {
-      if (group.selectedOption === option) {
+      if (group.selectedOption === optionId) {
         return;
       }
       const groupIndex = this.groups.findIndex(g => g.id === group.id);
       this.groups = this.groups.splice(0, groupIndex + 1);
     }
 
-    group.selectedOption = option;
-    this.updateGroups(option);
+    group.selectedOption = optionId;
+    this.updateGroups(optionId);
   }
 }

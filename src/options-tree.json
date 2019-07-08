@@ -3,7 +3,7 @@
         "groups": [{
             "id": "add",
             "parent_ids": [null],
-            "options": ["async", "filter"]
+            "options": ["async", "map", "filter", "interval_input"]
         }, {
             "id": "order",
             "parent_ids": ["async"],
@@ -12,13 +12,19 @@
             "id": "failure_tolerance",
             "parent_ids": ["next", "parallel"],
             "options": ["continue", "cancel"]
-        }
-        , {
+        }, {
             "id": "argument_chain",
             "parent_ids": ["continue", "cancel"],
             "options": ["pass", "ignore"]
-        }
-        ],
+        }, {
+            "id": "map_input",
+            "parent_ids": ["map"],
+            "options": ["map_input"]
+        }, {
+            "id": "interval_input",
+            "parent_ids": ["interval"],
+            "options": ["interval_input"]
+        }],
         "options": [{
             "id": "async",
             "type": "text"
@@ -44,14 +50,17 @@
             "id": "ignore",
             "type": "text"
         }, {
-            "id": "condition",
+            "id": "map_input",
+            "type": "input"
+        }, {
+            "id": "interval_input",
             "type": "input"
         }],
         "operators": {
             "async.parallel.cancel.ignore": "forkJoin"
         },
         "codes": {
-            "forkJoin": "forkJoin([observable1, observable2])\n  .subscribe([result1, result2] => { \n     // console.log('result 1: ', result1, ' result 2', result2); \n  });"
+            "forkJoin": "forkJoin([observable1, observable2])\n  .subscribe([result1, result2] => { \n     //console.log('result 1: ', result1, ' result 2', result2); \n })"
         }
     }
 }
