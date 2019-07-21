@@ -47,11 +47,19 @@ export class AppComponent implements OnInit {
 
       group.options = group.options.map(option => {
         
-        if (isRoot) {
-          return { id: option, type: 'text' };
+        let id: string;
+
+        if (typeof option === 'object' && option.id) {
+          id = option.id;
         } else {
-          const type = this.flowService.getOptionType(option);
-          return { id: option, type };
+          id = option;
+        }
+
+        if (isRoot) {
+          return { id, type: 'text' };
+        } else {
+          const type = this.flowService.getOptionType(id);
+          return { id, type };
         }
       });  
     });
