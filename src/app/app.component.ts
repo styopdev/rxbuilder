@@ -76,7 +76,7 @@ export class AppComponent implements OnInit {
   }
 
   showCode() {
-    const optionsChain = this.groups.map(g => g.selectedOption.id).join('.');
+    const optionsChain = this.groups.map(g => g.selectedOption).join('.');
     const operator = this.flowService.getOperator(optionsChain);
     const code = this.flowService.getCodeByOperator(operator);
     console.log('optionsChain: ', optionsChain);
