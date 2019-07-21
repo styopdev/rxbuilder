@@ -1,35 +1,55 @@
-<h1> {{ title }} </h1>
+<div class="wrapper">
 
+    <div class="main-title">
+        <span class="logo"><img src="../favicon.ico" alt="logo"></span>
+        <span class="main-title-text"> {{ title }} </span>
+    </div>
 
-<div class="code-preview">
-  <h2>Generated code: </h2>
-  
-  <ngx-codemirror
-    [(ngModel)]="generatedCode" 
-    [options]="{
+    <div class="code-preview">
+        <h2 class="main-caption mb-15">Generated code: </h2>
+
+        <ngx-codemirror
+                [(ngModel)]="generatedCode"
+                [options]="{
       lineNumbers: true,
-      theme: 'dracula',
+      theme: 'base16-light',
       mode: 'javascript'
     }"
-  ></ngx-codemirror>
-</div>
+        ></ngx-codemirror>
+    </div>
 
-<div class="rx-container">
-  <h2>You have an observable and you want to?</h2>
+    <div class="rx-container">
+        <h2 class="main-caption mb-15">You have an observable and you want to?</h2>
 
-  <ng-container *ngFor="let group of groups">
-    <div class="rx-group">
-      {{ labels.group[group.id] }}
-    </div>  
+        <ng-container *ngFor="let group of groups">
+            <div class="mb-15">
+                <div class="rx-group-title">
+                    <span class="tooltip">
+                        {{ labels.group[group.id] }}
+                         <span class="tooltiptext">Tooltip text</span>
+                    </span>
 
-    <ng-container *ngFor="let option of group.options">
-      <div *ngIf="option.type === 'text'" class="rx-option" [ngClass]="{ 'selected': group.selectedOption === option.id }" (click)="selectGroup(group, option.id)">
-        {{ option.id }}
-      </div>
+                </div>
+            </div>
 
-      <div *ngIf="option.type === 'input'" class="rx-option" [ngClass]="{ 'selected': group.selectedOption === option.id }" (click)="selectGroup(group, option)">
-        <input type="text">
-      </div>
-    </ng-container>
-  </ng-container>  
-</div>
+            <div class="rx-group-options mb-15 opt-{{group.options.length}}">
+
+                <ng-container *ngFor="let option of group.options">
+
+                    <div *ngIf="option.type === 'text'" class="rx-option" [ngClass]="{ 'selected': group.selectedOption === option.id }" (click)="selectGroup(group, option.id)">
+                        {{ option.id }}
+                    </div>
+
+                    <div *ngIf="option.type === 'input'" class="rx-option" [ngClass]="{ 'selected': group.selectedOption === option.id }" (click)="selectGroup(group, option)">
+                        <input type="text">
+                    </div>
+
+                </ng-container>
+            </div><!--.rx-group-options-->
+
+        </ng-container>
+    </div>
+
+
+</div><!--.wrapper-->
+

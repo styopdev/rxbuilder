@@ -9,7 +9,7 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'RXbuilder';
+  title = 'RXBuilder';
   groups = [];
   chain = [];
   parentId ?: string = null;

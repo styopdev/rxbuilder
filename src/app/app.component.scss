@@ -4,7 +4,6 @@
     float: right;
     padding-right: 30px;
     box-sizing: border-box;
-    text-align: center;
 }
 
 .code-preview {
@@ -13,24 +12,23 @@
 }
 
 .rx-option {
-    min-width: 120px;
-    width: auto;
-    padding: 15px;
-    margin-right: 50px;
-    display: inline-block;
-    box-sizing: border-box;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     font-weight: 500;
-    text-align: center;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    font-size: 1.5em;
-    background-color: purple;
+    border: 1px solid #77818A;
+    font-size: 13px;
+    background-color: #CEE2F6;
     cursor: pointer;
-    color: #ffffff;
+    color: #77818A;
 }
 
 .rx-option.selected {
     cursor: default;
-    background-color: red;
+    background-color: #FDAAB0;
 }
 
 .rx-group {

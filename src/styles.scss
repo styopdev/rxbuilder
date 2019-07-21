@@ -1,8 +1,163 @@
 /* You can add global styles to this file, and also import other style files */
 
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block; }
+
+body {
+    line-height: 1; }
+
+ol, ul {
+    list-style: none; }
+
+blockquote, q {
+    quotes: none; }
+
+blockquote {
+    &:before, &:after {
+        content: '';
+        content: none; } }
+
+q {
+    &:before, &:after {
+        content: '';
+        content: none; } }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0; }
+
 @import "~codemirror/lib/codemirror";
 
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: normal;
+    font-family: monospace;
+    font-style: normal;
 
-.rx-option {
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.mb-15{
     margin-bottom: 15px;
+}
+.wrapper {
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 8.33333%;
+    padding-right: 8.33333%;
+    box-sizing: border-box;
+}
+.main-title{
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #77818A;
+}
+.logo {
+    display: inline-block;
+    vertical-align: middle;
+    width: 32px;
+    height: 32px;
+}
+.logo img {
+    display: block;
+    width: 100%;
+}
+.main-title-text {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+.main-caption{
+    font-size: 18px;
+    font-weight: normal;
+    color: #77818A;
+}
+.rx-group-options{
+    display: flex;
+    justify-content: space-around;
+}
+.rx-group-options.opt-2{
+    display: flex;
+    justify-content: center;
+}
+.rx-group-options.opt-2 .rx-option{
+    margin: 0 30px;
+}
+.rx-group-options.opt-3{
+    display: flex;
+    justify-content: center;
+}
+.rx-group-options.opt-3 .rx-option{
+    margin: 0 45px;
+}
+.rx-group-title {
+    color: #77818A;
+    text-align: left;
+    font-size: 16px;
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    color: #77818A;
+    display: inline-block;
+    text-decoration: underline;
+    cursor: help;
+}
+
+/* Tooltip text  */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    min-width: 120px;
+    background-color: #77818A;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 13px;
+    border-radius: 6px;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+.tooltip .tooltiptext {
+    top: -5px;
+    left: 140%;
+}
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    margin-top: -4px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #77818A transparent transparent;
 }

@@ -28,7 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/codemirror/theme/dracula.css",
+              "node_modules/codemirror/theme/base16-light.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -89,7 +89,7 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/codemirror/theme/dracula.css",
+              "node_modules/codemirror/theme/base16-light.css",
               "src/styles.scss"
             ],
             "scripts": []
