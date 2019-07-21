@@ -7,7 +7,7 @@
         }, {
             "id": "order",
             "parent_ids": ["async"],
-            "options": ["next", "parallel"]
+            "options": ["next", "parallel", "pass"]
         }, {
             "id": "failure_tolerance",
             "parent_ids": ["next", "parallel"],
@@ -27,34 +27,52 @@
         }],
         "options": [{
             "id": "async",
-            "type": "text"
+            "type": "text",
+            "icon": "fa-reply"
         }, {
+          "id": "map",
+          "type": "text",
+          "icon": "fa-arrows-h"
+        },{
+          "id": "interval",
+          "type": "text",
+          "icon": "fa-clock-o"
+        },{
             "id": "filter",
-            "type": "text"
+            "type": "text",
+            "icon": "fa-sliders"
         }, {
             "id": "next",
-            "type": "text"
+            "type": "text",
+            "icon": "fa-forward"
         }, {
             "id": "parallel",
-            "type": "text"
+            "type": "text",
+            "icon": "fa-bars"
         }, {
             "id": "continue",
-            "type": "text"
+            "type": "text",
+            "icon": "fa-caret-right"
         }, {
             "id": "cancel",
-            "type": "text"
+            "type": "text",
+            "icon": "fa-times"
         }, {
             "id": "pass",
-            "type": "text"
+            "type": "text",
+            "icon": "fa-share"
         }, {
             "id": "ignore",
-            "type": "text"
+            "type": "text",
+            "icon": "fa-circle-o"
         }, {
             "id": "map_input",
-            "type": "input"
+            "type": "input",
+            "icon": ""
         }, {
             "id": "interval_input",
-            "type": "input"
+            "type": "input",
+            "icon": ""
         }],
         "operators": {
             "async.parallel.cancel.ignore": "forkJoin"

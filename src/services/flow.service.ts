@@ -6,7 +6,7 @@ import * as options from '../options-tree.json';
 
  export class FlowService {
     private options = options['data'];
-    
+
     constructor() {
     }
 
@@ -24,6 +24,10 @@ import * as options from '../options-tree.json';
         return this.options.codes[operator];
     }
 
+    getOptionIcon(operator) {
+        const option = this.options.options.find(oper => oper.id === operator) as Option;
+        return option.icon;
+    }
     getOptionType(operator) {
         const option = this.options.options.find(oper => oper.id === operator) as Option;
         return option.type;

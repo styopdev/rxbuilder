@@ -55,13 +55,14 @@ export class AppComponent implements OnInit {
           id = option;
         }
 
+        const icon = this.flowService.getOptionIcon(id);
         if (isRoot) {
-          return { id, type: 'text' };
+          return { id, type: 'text', icon };
         } else {
           const type = this.flowService.getOptionType(id);
-          return { id, type };
+          return { id, type, icon };
         }
-      });  
+      });
     });
 
     if (groups && groups.length) {

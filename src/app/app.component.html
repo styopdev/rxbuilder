@@ -63,8 +63,10 @@
 
                 <ng-container *ngFor="let option of group.options">
 
+
                     <div *ngIf="option.type === 'text'" class="rx-option" [ngClass]="{ 'selected': group.selectedOption === option.id }" (click)="selectGroup(group, option.id)">
-                        {{ option.id }}
+                        <i class="fa {{ option.icon }}"></i>
+                        <span>{{ option.id }}</span>
                     </div>
 
                     <div *ngIf="option.type === 'input'" class="rx-option" [ngClass]="{ 'selected': group.selectedOption === option.id }" (click)="selectGroup(group, option)">

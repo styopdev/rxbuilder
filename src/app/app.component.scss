@@ -15,6 +15,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     font-weight: 500;
     width: 80px;
     height: 80px;
@@ -25,7 +26,14 @@
     cursor: pointer;
     color: #77818A;
 }
+.rx-option i,
+.rx-option span{
+    margin: 3px 0;
+}
 
+.rx-option:hover {
+    border: 1px solid #3e4246;
+}
 .rx-option.selected {
     cursor: default;
     background-color: #FDAAB0;
