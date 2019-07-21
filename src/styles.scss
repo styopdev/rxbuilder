@@ -56,18 +56,36 @@ ul{
 .mb-15{
     margin-bottom: 15px;
 }
+.mb-14{
+    margin-top: 14px;
+}
+.fll{
+    float: left;
+}
+.flr{
+    float: right;
+}
+header{
+    background-color: #24292e;
+    color: hsla(0,0%,100%,.7);
+    font-size: 14px;
+    line-height: 1.5;
+    z-index: 32;
+    overflow: hidden;
+    padding: 5px 30px;
+}
 .wrapper {
     position: relative;
-    padding-top: 60px;
-    padding-bottom: 60px;
     padding-left: 8.33333%;
     padding-right: 8.33333%;
     box-sizing: border-box;
 }
-.main-title{
-    position: absolute;
-    top: 15px;
-    left: 30px;
+.content {
+    background-color: #ebeff2;
+    overflow: hidden;
+    padding: 30px 15px 60px 15px;
+}
+.main-title {
     font-size: 32px;
     font-weight: bold;
     color: #77818A;
@@ -91,6 +109,9 @@ ul{
     font-size: 18px;
     font-weight: normal;
     color: #77818A;
+}
+.CodeMirror {
+    border: 1px solid #d7dce0;
 }
 .rx-group-options{
     display: flex;
