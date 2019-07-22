@@ -2,18 +2,22 @@
     "data": {
         "groups": [{
             "id": "add",
+            "tooltip": "Let's say you already have an observable and you want to apply an action",
             "parent_ids": [null],
             "options": ["async", "map", "filter", "interval"]
         }, {
             "id": "order",
+            "tooltip": "Should your async actions run at the same time or next to each other?",
             "parent_ids": ["async"],
-            "options": ["next", "parallel", "pass"]
+            "options": ["next", "parallel"]
         }, {
             "id": "failure_tolerance",
+            "tooltip": "What should happen with second observable if first unfortunately fails?",
             "parent_ids": ["next", "parallel"],
             "options": ["continue", "cancel"]
         }, {
             "id": "argument_chain",
+            "tooltip": "Would you like to use response of first observable in second one",
             "parent_ids": ["continue", "cancel"],
             "options": ["pass", "ignore"]
         }, {
@@ -78,7 +82,7 @@
             "async.parallel.cancel.ignore": "forkJoin"
         },
         "codes": {
-            "forkJoin": "forkJoin([observable1, observable2])\n  .subscribe([result1, result2] => { \n     //console.log('result 1: ', result1, ' result 2', result2); \n })"
+            "forkJoin": "forkJoin([observable1, observable2])\n  .subscribe([result1, result2] => { \n     //console.log('result 1: ', result1, ' result 2', result2); \n });"
         }
     }
 }

@@ -36,12 +36,12 @@
         <h2 class="main-caption mb-15">Generated code: </h2>
 
         <ngx-codemirror
-                [(ngModel)]="generatedCode"
-                [options]="{
-      lineNumbers: true,
-      theme: 'base16-light',
-      mode: 'javascript'
-    }"
+            [(ngModel)]="generatedCode"
+            [options]="{
+                lineNumbers: true,
+                theme: 'base16-light',
+                mode: 'javascript'
+            }"
         ></ngx-codemirror>
     </div>
 
@@ -53,7 +53,7 @@
                 <div class="rx-group-title">
                     <span class="tooltip">
                         {{ labels.group[group.id] }}
-                         <span class="tooltiptext">Tooltip text</span>
+                         <span class="tooltiptext">{{ group.tooltip }}</span>
                     </span>
 
                 </div>

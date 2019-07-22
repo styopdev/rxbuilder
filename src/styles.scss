@@ -84,11 +84,12 @@ header{
     background-color: #ebeff2;
     overflow: hidden;
     padding: 45px 35px 60px 35px;
+    height: 550px;
 }
 .main-title {
     font-size: 32px;
     font-weight: bold;
-    color: #77818A;
+    color: #e8e8e8;
 }
 .logo {
     display: inline-block;
@@ -152,9 +153,10 @@ header{
 /* Tooltip text  */
 .tooltip .tooltiptext {
     visibility: hidden;
-    min-width: 120px;
+    min-width: 300px;
     background-color: #77818A;
     color: #fff;
+    line-height: 16px;
     text-align: center;
     padding: 5px 0;
     font-size: 13px;
@@ -181,4 +183,8 @@ header{
     border-width: 5px;
     border-style: solid;
     border-color: transparent #77818A transparent transparent;
+}
+
+.CodeMirror {
+    line-height: 21px;
 }
