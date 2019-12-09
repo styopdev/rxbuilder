@@ -17,25 +17,12 @@ export class AppComponent implements OnInit {
   public labels = labels['default'];
 
   constructor(
-    private flowService: FlowService, 
+    private flowService: FlowService,
     private http: HttpClient
     ) {
   }
 
   ngOnInit() {
-    // const hatsUrl = 'https://www.potterapi.com/v1/sortingHat';
-    // const catFactsUrl = 'https://cors-anywhere.herokuapp.com/https://cat-fact.herokuapp.com/facts/random';
-
-    // const hatsObservable = this.http.get(hatsUrl);
-    // const catsObservable = this.http.get(catFactsUrl);
-
-    // combineAll([hatsObservable, catsObservable, hatsObservable])
-    //   .subscribe(([hats, cats, hats2]) => {
-    //     console.log('hats: ', hats);
-    //     console.log('cats: ', cats);
-    //     console.log('hats2: ', hats2);
-    // })
-
     this.updateGroups(this.parentId);
   }
 
@@ -43,10 +30,9 @@ export class AppComponent implements OnInit {
     const groups = this.flowService.getGroups(parentId || null);
 
     groups.forEach(group => {
-      const isRoot = ~group.parent_ids.indexOf(null);
+      const isRoot = group.parent_ids.includes(null);
 
       group.options = group.options.map(option => {
-        
         let id: string;
 
         if (typeof option === 'object' && option.id) {

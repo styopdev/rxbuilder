@@ -1,6 +1,4 @@
-
 <header>
-
     <div class="main-title fll">
         <span class="logo"><img src="../favicon.ico" alt="logo"></span>
         <span class="main-title-text"> {{ title }} </span>
@@ -28,58 +26,46 @@
 </header>
 
 <div class="wrapper">
-
     <div class="content">
+        <div class="code-preview">
+            <h2 class="main-caption mb-15">Generated code: </h2>
 
+            <ngx-codemirror
+                [(ngModel)]="generatedCode"
+                [options]="{
+                    lineNumbers: true,
+                    theme: 'base16-light',
+                    mode: 'javascript'
+                }"
+            ></ngx-codemirror>
+        </div>
 
-    <div class="code-preview">
-        <h2 class="main-caption mb-15">Generated code: </h2>
+        <div class="rx-container">
+            <h2 class="main-caption mb-15">You have an observable and you want to?</h2>
 
-        <ngx-codemirror
-            [(ngModel)]="generatedCode"
-            [options]="{
-                lineNumbers: true,
-                theme: 'base16-light',
-                mode: 'javascript'
-            }"
-        ></ngx-codemirror>
-    </div>
-
-    <div class="rx-container">
-        <h2 class="main-caption mb-15">You have an observable and you want to?</h2>
-
-        <ng-container *ngFor="let group of groups">
-            <div class="mb-15">
-                <div class="rx-group-title">
-                    <span class="tooltip">
-                        {{ labels.group[group.id] }}
-                         <span class="tooltiptext">{{ group.tooltip }}</span>
-                    </span>
-
+            <ng-container *ngFor="let group of groups">
+                <div class="mb-15">
+                    <div class="rx-group-title">
+                        <span class="tooltip">
+                            {{ labels.group[group.id] }}
+                            <span class="tooltiptext">{{ group.tooltip }}</span>
+                        </span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="rx-group-options mb-15 opt-{{group.options.length}}">
+                <div class="rx-group-options mb-15 opt-{{group.options.length}}">
+                    <ng-container *ngFor="let option of group.options">
+                        <div *ngIf="option.type === 'text'" class="rx-option" [ngClass]="{ 'selected': group.selectedOption === option.id }" (click)="selectGroup(group, option.id)">
+                            <i class="fa {{ option.icon }}"></i>
+                            <span>{{ option.id }}</span>
+                        </div>
 
-                <ng-container *ngFor="let option of group.options">
-
-
-                    <div *ngIf="option.type === 'text'" class="rx-option" [ngClass]="{ 'selected': group.selectedOption === option.id }" (click)="selectGroup(group, option.id)">
-                        <i class="fa {{ option.icon }}"></i>
-                        <span>{{ option.id }}</span>
-                    </div>
-
-                    <div *ngIf="option.type === 'input'" class="rx-option" [ngClass]="{ 'selected': group.selectedOption === option.id }" (click)="selectGroup(group, option)">
-                        <input type="text">
-                    </div>
-
-                </ng-container>
-            </div><!--.rx-group-options-->
-
-        </ng-container>
+                        <div *ngIf="option.type === 'input'" class="rx-option" [ngClass]="{ 'selected': group.selectedOption === option.id }" (click)="selectGroup(group, option)">
+                            <input placeholder="(val) => val.id" type="text">
+                        </div>
+                    </ng-container>
+                </div>
+            </ng-container>
+        </div>
     </div>
-
-    </div><!--.content-->
-
-</div><!--.wrapper-->
-
+</div>

@@ -5,6 +5,7 @@ import * as options from '../options-tree.json';
 @Injectable()
 
  export class FlowService {
+    // tslint:disable-next-line: no-string-literal
     private options = options['data'];
 
     constructor() {

@@ -26,10 +26,19 @@
     cursor: pointer;
     color: #77818A;
 }
+
 .rx-option i,
-.rx-option span{
+.rx-option span {
     margin: 3px 0;
 }
+.rx-option input {
+    text-align: center;
+    font-size: 16px;
+}
+.rx-option input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ccc;
+    opacity: 1; /* Firefox */
+  }
 
 .rx-option:hover {
     border: 1px solid #3e4246;
