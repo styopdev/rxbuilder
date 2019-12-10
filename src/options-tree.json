@@ -18,7 +18,7 @@
         }, {
             "id": "failure_tolerance",
             "tooltip": "What should happen with second observable if first unfortunately fails?",
-            "parent_ids": ["pass", "ignore"],
+            "parent_ids": ["pass", "ignore", "parallel"],
             "options": ["continue", "cancel"]
         }, {
             "id": "map_input",
