@@ -79,7 +79,7 @@
             "icon": ""
         }],
         "operators": {
-            "async.parallel.cancel.ignore": "forkJoin"
+            "async.parallel.cancel": "forkJoin"
         },
         "codes": {
             "forkJoin": "forkJoin([observable1, observable2])\n  .subscribe([result1, result2] => { \n     //console.log('result 1: ', result1, ' result 2', result2); \n });"
