@@ -11,15 +11,15 @@
             "parent_ids": ["async"],
             "options": ["next", "parallel"]
         }, {
-            "id": "failure_tolerance",
-            "tooltip": "What should happen with second observable if first unfortunately fails?",
-            "parent_ids": ["next", "parallel"],
-            "options": ["continue", "cancel"]
-        }, {
             "id": "argument_chain",
             "tooltip": "Would you like to use response of first observable in second one",
-            "parent_ids": ["continue", "cancel"],
+            "parent_ids": ["next"],
             "options": ["pass", "ignore"]
+        }, {
+            "id": "failure_tolerance",
+            "tooltip": "What should happen with second observable if first unfortunately fails?",
+            "parent_ids": ["pass", "ignore"],
+            "options": ["continue", "cancel"]
         }, {
             "id": "map_input",
             "parent_ids": ["map"],
